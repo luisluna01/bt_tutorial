@@ -11,14 +11,12 @@ int main()
   // Registers behaviors and creates trees
   BT::BehaviorTreeFactory factory;
 
-  // Recommended way to create a node
+  // Recommended way to register nodes
   factory.registerNodeType<ApproachObject>("ApproachObject");
-
-  // Registering SimpleActionNode using a function pointer
-  // can be lambdas or binders
-  factory.registerSimpleCondition("CheckBattery", [&](BT::TreeNode&) { return CheckBattery(); });
+  factory.registerNodeType<CheckBattery>("CheckBattery");
 
   // You can also create SimpleActionNodes using methods of a class
+  // - Look at BehaviorTree.CPP tutorials to see how a SimpleConditionNode can be created
   GripperInterface gripper;
   factory.registerSimpleAction("OpenGripper", [&](BT::TreeNode&){ return gripper.open(); });
   factory.registerSimpleAction("CloseGripper", [&](BT::TreeNode&){ return gripper.close(); });
