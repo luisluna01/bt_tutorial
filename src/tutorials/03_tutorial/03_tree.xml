@@ -1,0 +1,10 @@
+<root BTCPP_format="4">
+    <BehaviorTree ID="MainTree">
+        <Sequence name="root">
+            <Action ID="CalculateGoal" goal="{GoalPosition}"/>
+            <Action ID="PrintTarget" target="{GoalPosition}"/>
+            <Script code=" OtherGoal:='-1;3' "/>
+            <Action ID="PrintTarget" target="{OtherGoal}"/>
+        </Sequence>
+    </BehaviorTree>
+</root>
