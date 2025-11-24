@@ -1,3 +1,5 @@
+#pragma once
+
 #include "behaviortree_cpp/action_node.h"
 
 // Synchronous action node example with an input port
