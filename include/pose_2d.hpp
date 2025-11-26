@@ -1,31 +1,29 @@
-// This example shows how to deal with ports when type is not std::string (default port type)
 #pragma once
 
 #include "behaviortree_cpp/json_export.h"
 
-// Want to use this type for port
-struct Position2D
+struct Pose2D
 {
-  double x;
-  double y;
+  double x, y, theta;
 };
 
-// Template specialization to convert a string to Position2D
+// Template specialization to convert a string to Pose2D
 namespace BT
 {
-  template <> inline Position2D convertFromString(StringView str)
+  template <> inline Pose2D convertFromString(StringView str)
   {
     printf("Converting string: \"%s\"\n", str.data());
     
     // Real numbers are expected to be separated by semicolons
     auto parts = splitString(str, ';');
-    if (parts.size() !=2) {
+    if (parts.size() !=3) {
       throw RuntimeError("invalid input");
     }
     else {
-      Position2D output;
+      Pose2D output;
       output.x = convertFromString<double>(parts[0]);
       output.y = convertFromString<double>(parts[1]);
+      output.theta = convertFromString<double>(parts[2]);
       return output;
     }
   }

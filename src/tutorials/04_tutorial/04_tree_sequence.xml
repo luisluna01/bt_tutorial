@@ -1,0 +1,11 @@
+<!-- This Behavior Tree uses the Sequence control node -->
+<root BTCPP_format="4">
+    <BehaviorTree>
+        <Sequence>
+            <Condition ID="CheckBattery"/>
+            <Action ID="SaySomething" message="mission started..."/>
+            <Action ID="MoveBase" goal = "1;2;3"/>
+            <Action ID="SaySomething" message="mission completed!"/>
+        </Sequence>
+    </BehaviorTree>
+</root>
