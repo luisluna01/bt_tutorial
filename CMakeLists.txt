@@ -8,16 +8,11 @@ project(bt_tutorial)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-# Set BehaviorTree.CPP source and build directories
-set(BT_CPP_DIR "${CMAKE_SOURCE_DIR}/../BehaviorTree.CPP")
-set(BT_CPP_BUILD "${BT_CPP_DIR}/build_release")
+# Find the installed BehaviorTree.CPP package
+find_package(behaviortree_cpp REQUIRED)
 
-# Include headers
-include_directories(${BT_CPP_DIR}/include)
-include_directories(${CMAKE_SOURCE_DIR}/include)
-
-# Link directories (if there are compiled static/dynamic libs)
-link_directories(${BT_CPP_BUILD})
+# Include project headers
+include_directories(include)
 
 # Collect all behavior implementation files
 file(GLOB BEHAVIOR_SOURCES "src/behaviors/*.cpp")
@@ -37,7 +32,7 @@ foreach(TUTORIAL ${TUTORIAL_SOURCES})
     add_executable(${TARGET_NAME} ${TUTORIAL} ${BEHAVIOR_SOURCES})
 
     # Link against BehaviorTree.CPP
-    target_link_libraries(${TARGET_NAME} PRIVATE behaviortree_cpp)
+    target_link_libraries(${TARGET_NAME} PRIVATE behaviortree_cpp::behaviortree_cpp)
 endforeach()
 
 # Copy XML files to build directory
