@@ -2,7 +2,10 @@
 This repo is to show my progress in my training to learn BehaviorTree.CPP. The tutorials I followed from the [BehaviorTree.CPP tutorials](https://www.behaviortree.dev/) can be found in `include/tutorials` and `src/tutorials`.
 
 ## Prerequisite
-Clone and compile [BehaviorTree.CPP repo](https://github.com/BehaviorTree/BehaviorTree.CPP) with CMake.
+This project relies on the `behaviortree_cpp` package through ROS2. For the same setup used here, follow the installation instructions in [ROS2](https://docs.ros.org/en/humble/Installation/Ubuntu-Install-Debs.html) and run:
+```
+sudo apt install ros-<distro>-behaviortree-cpp # Use your distro
+```
 
 ## Compile and Run
 Clone and navigate to the repository:
