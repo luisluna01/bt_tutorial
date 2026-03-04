@@ -24,5 +24,5 @@ cmake --build .
 
 Run any executable. Run the command below as an example:
 ```bash
-./01_your_first_bt_exec
+./first_behavior_tree_exec
 ```
