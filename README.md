@@ -1,31 +1,30 @@
 # BT Training
-This repo is to show my progress in my training to learn BehaviorTree.CPP. The tutorials I followed from the [BehaviorTree.CPP tutorials](https://www.behaviortree.dev/) can be found in `include/tutorials` and `src/tutorials`.
+This repo is to show my progress in my learning of BehaviorTree.CPP.
 
-## Prerequisite
-This project relies on the `behaviortree_cpp` package through ROS2. For the same setup used here, follow the installation instructions in [ROS2](https://docs.ros.org/en/humble/Installation/Ubuntu-Install-Debs.html) and run:
+## Setup
+This project relies on the `behaviortree_cpp` package through ROS2. For the same setup used here, follow the installation instructions in [ROS2](https://docs.ros.org/en/humble/Installation/Ubuntu-Install-Debs.html) and install the`behaviortree_cpp` package:
 ```
-sudo apt install ros-<distro>-behaviortree-cpp # Use your distro
+sudo apt install ros-<distro>-behaviortree-cpp # Use your ROS2 distro
 ```
 
-## Compile and Run
-Clone and navigate to the repository:
+Clone the repository:
 ```bash
-git clone git@github.com:luisluna01/bt_training.git
-cd bt_training/
+git clone git@github.com:luisluna01/bt_tutorial.git
 ```
 
-Navigate to the `/build` directory and configure the project:
-```bash
-cd bt_training/build
-cmake ..
-```
+## BehaviorTree.CPP Tutorials
+The tutorials I followed from the [BehaviorTree.CPP](https://www.behaviortree.dev/docs/intro) can be found under `bt_tutorial/bt_tutorial`. To compile and execute them, follow the instructions below:
 
 Compile the project:
 ```bash
-cmake --build .
+cd bt_tutorial/bt_tutorial/tutorial directory
+mkdir build && cd build
+cmake .. cmake --build . # Configure and compile the CMake project 
 ```
 
-Run any executable. Run the command below as an example:
+This command is an example showing how to run any executable in this directory:
 ```bash
 ./first_behavior_tree_exec
 ```
+
+<!-- ## BehaviorTree with ROS2 Tutorials -->
