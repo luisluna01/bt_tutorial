@@ -1,4 +1,4 @@
-# BT Training
+# Behavior Tree Tutorial
 This repo is to show my progress in my learning of BehaviorTree.CPP.
 
 ## Setup
@@ -27,4 +27,4 @@ This command is an example showing how to run any executable in this directory:
 ./first_behavior_tree_exec
 ```
 
-<!-- ## BehaviorTree with ROS2 Tutorials -->
+## BehaviorTree with ROS2 Tutorials
