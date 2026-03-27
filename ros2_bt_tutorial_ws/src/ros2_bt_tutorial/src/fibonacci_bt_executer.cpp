@@ -13,10 +13,10 @@ int main(int argc, char **argv)
   std::string share_dir = ament_index_cpp::get_package_share_directory("ros2_bt_tutorial");
 
   // Register node with desired ROS2 params
-  BT::RosNodeParams add_two_ints_params;
-  add_two_ints_params.nh = node;
-  add_two_ints_params.default_port_value = "fibonacci";
-  factory.registerNodeType<Fibonacci>("Fibonacci", add_two_ints_params);
+  BT::RosNodeParams fibonacci_params;
+  fibonacci_params.nh = node;
+  fibonacci_params.default_port_value = "fibonacci";
+  factory.registerNodeType<FibonacciAction>("Fibonacci", fibonacci_params);
 
   auto tree = factory.createTreeFromFile(share_dir + "/trees/fibonacci_tree.xml");
 
