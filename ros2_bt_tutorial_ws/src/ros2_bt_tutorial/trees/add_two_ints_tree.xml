@@ -1,0 +1,5 @@
+<root BTCPP_format="4">
+  <BehaviorTree ID="AddTwoIntsSample">
+    <AddTwoInts A="3" B="4"/>
+  </BehaviorTree>
+</root>
