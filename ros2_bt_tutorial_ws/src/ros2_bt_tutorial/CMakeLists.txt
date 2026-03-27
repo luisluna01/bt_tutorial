@@ -15,23 +15,38 @@ find_package(btcpp_ros2_interfaces REQUIRED)
 find_package(action_tutorials_interfaces REQUIRED)
 find_package(example_interfaces REQUIRED)
 
-add_executable(bt_executer
-  src/bt_executer.cpp
-  src/behaviors/fibonacci_action_client.cpp
+add_executable(add_two_ints_bt_executer
+  src/add_two_ints_bt_executer.cpp
   src/behaviors/add_two_ints_service_client.cpp
 )
-target_include_directories(bt_executer PUBLIC include)
-ament_target_dependencies(bt_executer
+target_include_directories(add_two_ints_bt_executer PUBLIC include)
+ament_target_dependencies(add_two_ints_bt_executer
+  ament_index_cpp
+  rclcpp
+  behaviortree_cpp
+  behaviortree_ros2
+  btcpp_ros2_interfaces
+  example_interfaces
+)
+
+add_executable(fibonacci_bt_executer
+  src/fibonacci_bt_executer.cpp
+  src/behaviors/fibonacci_action_client.cpp
+)
+target_include_directories(fibonacci_bt_executer PUBLIC include)
+ament_target_dependencies(fibonacci_bt_executer
   ament_index_cpp
   rclcpp
   behaviortree_cpp
   behaviortree_ros2
   btcpp_ros2_interfaces
   action_tutorials_interfaces
-  example_interfaces
 )
 
-install(TARGETS bt_executer
+install(TARGETS
+  add_two_ints_bt_executer
+  fibonacci_bt_executer
+  
   DESTINATION lib/${PROJECT_NAME}
 )
 
