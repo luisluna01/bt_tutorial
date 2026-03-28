@@ -14,6 +14,7 @@ find_package(behaviortree_ros2 REQUIRED)
 find_package(btcpp_ros2_interfaces REQUIRED)
 find_package(action_tutorials_interfaces REQUIRED)
 find_package(example_interfaces REQUIRED)
+find_package(std_msgs REQUIRED)
 
 add_executable(add_two_ints_bt_executer
   src/add_two_ints_bt_executer.cpp
@@ -43,9 +44,24 @@ ament_target_dependencies(fibonacci_bt_executer
   action_tutorials_interfaces
 )
 
+add_executable(simple_publisher_bt_executer
+  src/simple_publisher_bt_executer.cpp
+  src/behaviors/simple_publisher.cpp
+)
+target_include_directories(simple_publisher_bt_executer PUBLIC include)
+ament_target_dependencies(simple_publisher_bt_executer
+  ament_index_cpp
+  rclcpp
+  behaviortree_cpp
+  behaviortree_ros2
+  btcpp_ros2_interfaces
+  std_msgs
+)
+
 install(TARGETS
   add_two_ints_bt_executer
   fibonacci_bt_executer
+  simple_publisher_bt_executer
   
   DESTINATION lib/${PROJECT_NAME}
 )

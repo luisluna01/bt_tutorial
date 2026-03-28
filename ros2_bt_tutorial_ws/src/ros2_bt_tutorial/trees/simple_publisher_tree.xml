@@ -1,0 +1,11 @@
+<root BTCPP_format="4">
+    <BehaviorTree ID="SimplePublisherSample">
+        <Repeat num_cycles="-1">
+            <Sequence>
+                <!-- Ensure tree ticks every second -->
+                <Sleep msec="1000"/>
+                <SimplePublisher message="Hello World!"/>
+            </Sequence>
+        </Repeat>
+    </BehaviorTree>
+</root>
