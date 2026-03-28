@@ -5,7 +5,7 @@ SimplePublisher::SimplePublisher(
   const BT::NodeConfig& config,
   const BT::RosNodeParams& params
 ):
-  BT::RosTopicPubNode<String>(name, config, params), params_(params)
+  BT::RosTopicPubNode<String>(name, config, params)
 {}
 
 
@@ -24,7 +24,8 @@ bool SimplePublisher::setMessage(String& msg)
 {
   getInput("message", msg.data);
   
-  RCLCPP_INFO_STREAM(rclcpp::get_logger("Logger"), "Publishing: " << msg.data);
+  // The ROS2 node is a protected class and can be accessed
+  RCLCPP_INFO_STREAM(node_->get_logger(), "Publishing: " << msg.data);
 
   return true;
 }

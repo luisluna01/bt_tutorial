@@ -20,5 +20,4 @@ public:
   bool setMessage(String& msg) override;
 
 private:
-  const BT::RosNodeParams& params_;
 };
