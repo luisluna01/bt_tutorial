@@ -4,8 +4,9 @@
 AddTwoIntsNode::AddTwoIntsNode(
   const std::string& name,
   const BT::NodeConfig& config,
-  const BT::RosNodeParams& params)
-  : RosServiceNode<AddTwoInts>(name, config, params)
+  const BT::RosNodeParams& params
+):
+  RosServiceNode<AddTwoInts>(name, config, params)
 {}
 
 // Specific ports of thie Derived class should be merged with the ports of the base class using
