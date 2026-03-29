@@ -27,9 +27,9 @@ int main(int argc, char **argv)
 
   // Run the behavior tree and ensure ^C kills the node
   while (rclcpp::ok()) {
-    auto status = tree.tickOnce();
+    BT::NodeStatus status = tree.tickOnce();
     if (status != BT::NodeStatus::RUNNING) {
-        break;
+      break;
     }
     tree.sleep(std::chrono::milliseconds(10));
   }

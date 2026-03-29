@@ -2,8 +2,8 @@
     <BehaviorTree ID="SimplePublisherSample">
         <Repeat num_cycles="-1">
             <Sequence>
-                <Sleep msec="1000"/>
                 <SimplePublisher message="Hello World!"/>
+                <Sleep msec="10"/>
             </Sequence>
         </Repeat>
     </BehaviorTree>
