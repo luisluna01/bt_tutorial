@@ -58,10 +58,25 @@ ament_target_dependencies(simple_publisher_bt_executer
   std_msgs
 )
 
+add_executable(simple_subscriber_bt_executer
+  src/simple_subscriber_bt_executer.cpp
+  src/behaviors/simple_subscriber.cpp
+)
+target_include_directories(simple_subscriber_bt_executer PUBLIC include)
+ament_target_dependencies(simple_subscriber_bt_executer
+  ament_index_cpp
+  rclcpp
+  behaviortree_cpp
+  behaviortree_ros2
+  btcpp_ros2_interfaces
+  std_msgs
+)
+
 install(TARGETS
   add_two_ints_bt_executer
   fibonacci_bt_executer
   simple_publisher_bt_executer
+  simple_subscriber_bt_executer
   
   DESTINATION lib/${PROJECT_NAME}
 )
