@@ -10,6 +10,8 @@ SimpleSubscriber::SimpleSubscriber(
 {}
 
 
+// Required callback invoked in tick to allow the user to pass the message to be published. Must
+// Must return either true or false
 BT::NodeStatus SimpleSubscriber::onTick(const String::SharedPtr& msg)
 {
   if (msg) {

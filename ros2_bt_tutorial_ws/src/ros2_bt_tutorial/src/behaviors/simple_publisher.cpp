@@ -9,17 +9,8 @@ SimplePublisher::SimplePublisher(
 {}
 
 
-// Specific ports of thie Derived class should be merged with the ports of the base class using
-// RosServiceNode::providedBasicPorts()
-BT::PortsList SimplePublisher::providedPorts()
-{
-  return providedBasicPorts({
-    BT::InputPort<std::string>("message", "Topic message to be published")
-  });
-}
-
-
-// Callback invoked in during the tick to pass the message to be published
+// Callback invoked in during the tick to pass the message to be published. Must return either true
+// or false
 bool SimplePublisher::setMessage(String& msg)
 {
   getInput("message", msg.data);

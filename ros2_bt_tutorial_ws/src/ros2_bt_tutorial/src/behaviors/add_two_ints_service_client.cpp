@@ -9,8 +9,8 @@ AddTwoIntsNode::AddTwoIntsNode(
   RosServiceNode<AddTwoInts>(name, config, params)
 {}
 
-// Specific ports of thie Derived class should be merged with the ports of the base class using
-// RosServiceNode::providedBasicPorts()
+// Specific ports of this derived class should be merged with the ports of the base class using
+// RosServiceNode::providedBasicPorts(). This method is optional
 BT::PortsList AddTwoIntsNode::providedPorts()
 {
   return providedBasicPorts({

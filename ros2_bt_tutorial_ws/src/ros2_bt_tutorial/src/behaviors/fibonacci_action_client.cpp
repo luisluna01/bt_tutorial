@@ -44,8 +44,9 @@ BT::NodeStatus FibonacciAction::onResultReceived(const RosActionNode::WrappedRes
 }
 
 
-// Callback executed when the reply is recieved. Typically would be set to return SUCCESS or
-// FAILURE based on the return value. If not overriden, it will return FAILURE by default
+// Callback executed when there was an error at the level of communication between the client and
+// server. This will set this TreeNode to SUCCESS or FAILURE based on the return value. It will
+// return FAILURE by default
 BT::NodeStatus FibonacciAction::onFailure(BT::ActionNodeErrorCode error)
 {
   RCLCPP_ERROR(logger(), "Error: %d", error);
@@ -53,9 +54,9 @@ BT::NodeStatus FibonacciAction::onFailure(BT::ActionNodeErrorCode error)
 }
 
 
-// Callback should return RUNNING. However, this callback can also be used to abort the action based
-// based on the value of the feedback by considering thie TreeNode completed (SUCCESS or FAILURE).
-// In this case, the Cancel request will automatically be sent to the server.
+// Callback executed for each feedback. Typically used to set the TreeNode to RUNNING, but it can
+// be modified to abort the action based on the value of the feedback and set the TreeNode to
+// SUCCESS or FAILURE. The cancel request will be automatically sent to the server.
 BT::NodeStatus FibonacciAction::onFeedback(const std::shared_ptr<const Feedback> feedback)
 {
   std::stringstream ss;

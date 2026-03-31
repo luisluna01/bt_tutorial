@@ -5,8 +5,6 @@
 
 using String = std_msgs::msg::String;
 
-// This behavior will act as an example of a topic publisher using the BehaviorTree.ROS2 wrapper. It
-// when ticked, it will publish a string message over the '/topic' topic.
 class SimplePublisher: public BT::RosTopicPubNode<String>
 {
 public:
