@@ -3,6 +3,7 @@
         <Repeat num_cycles="-1">
             <Sequence>
                 <SimpleSubscriber/>
+                <!-- Prevents from getting stuck without being able to interrupt with C^ -->
                 <Sleep msec="10"/>
             </Sequence>
         </Repeat>

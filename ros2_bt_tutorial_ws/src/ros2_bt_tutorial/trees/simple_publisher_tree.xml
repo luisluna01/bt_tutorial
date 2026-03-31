@@ -3,6 +3,7 @@
         <Repeat num_cycles="-1">
             <Sequence>
                 <SimplePublisher message="Hello World!"/>
+                <!-- Prevents from getting stuck without being able to interrupt with C^ -->
                 <Sleep msec="10"/>
             </Sequence>
         </Repeat>
