@@ -10,19 +10,14 @@ SimpleSubscriber::SimpleSubscriber(
 {}
 
 
-BT::PortsList SimpleSubscriber::providedPorts()
-{
-  return providedBasicPorts({
-    BT::InputPort<std::string>("message", "message subscribed from Topic")
-  });
-}
-
-
 BT::NodeStatus SimpleSubscriber::onTick(const String::SharedPtr& msg)
 {
-  getInput("message", msg->data);
-
-  RCLCPP_INFO_STREAM(node_->get_logger(), "I heard: \"" << msg->data << "\"");
-
-  return BT::NodeStatus::RUNNING;
+  if (msg) {
+    RCLCPP_INFO_STREAM(node_.lock()->get_logger(), "I heard: \"" << msg->data << "\"");
+    return BT::NodeStatus::SUCCESS;
+  }
+  else {
+    RCLCPP_WARN_STREAM(node_.lock()->get_logger(), "No message provided...");
+    return BT::NodeStatus::SUCCESS;
+  }
 }

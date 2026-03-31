@@ -11,7 +11,5 @@ class SimpleSubscriber : public BT::RosTopicSubNode<String>
 public:
   SimpleSubscriber(const std::string& name, const BT::NodeConfig& config, const BT::RosNodeParams);
 
-  static BT::PortsList providedPorts();
-
   BT::NodeStatus onTick(const String::SharedPtr& msg);
 };
