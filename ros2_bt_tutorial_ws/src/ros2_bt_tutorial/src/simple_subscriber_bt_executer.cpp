@@ -32,7 +32,9 @@ int main(int argc, char **argv)
     }
 
     tree.sleep(std::chrono::milliseconds(10));
-  } 
+  }
+
+  rclcpp::shutdown();
   
   return 0;
 }
