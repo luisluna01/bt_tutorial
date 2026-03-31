@@ -1,0 +1,10 @@
+<root BTCPP_format="4">
+    <BehaviorTree ID="SimpleSubscriberSample">
+        <Repeat num_cycles="-1">
+            <Sequence>
+                <SimpleSubscriber/>
+                <Sleep msec="10"/>
+            </Sequence>
+        </Repeat>
+    </BehaviorTree>
+</root>
