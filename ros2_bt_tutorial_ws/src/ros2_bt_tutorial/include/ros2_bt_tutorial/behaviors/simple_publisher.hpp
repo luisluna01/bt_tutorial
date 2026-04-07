@@ -1,3 +1,4 @@
+#pragma once
 
 #include "behaviortree_ros2/bt_topic_pub_node.hpp"
 
