@@ -2,10 +2,10 @@
 <root BTCPP_format="4">
     <BehaviorTree>
         <ReactiveSequence>
-            <CheckBattery/>
-            <SaySomething message="mission started..."/>
-            <MoveBase goal = "1;2;3"/>
-            <SaySomething message="mission completed!"/>
+            <Condition ID="CheckBattery"/>
+            <Action ID="SaySomething" message="mission started..."/>
+            <Action ID="MoveBase" goal = "1;2;3"/>
+            <ACtion ID="SaySomething" message="mission completed!"/>
         </ReactiveSequence>
     </BehaviorTree>
 </root>
