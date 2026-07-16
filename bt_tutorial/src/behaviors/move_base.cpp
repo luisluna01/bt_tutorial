@@ -40,6 +40,9 @@ BT::NodeStatus MoveBase::onRunning()
     
     return BT::NodeStatus::SUCCESS;
   }
+
+  std::cout << "[ MoveBase: PROCESSING ]" << std::endl;
+
   return BT::NodeStatus::RUNNING;
 }
 
