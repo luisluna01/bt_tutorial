@@ -19,10 +19,10 @@ int main()
 
   std::cout << "Tree using Sequence control node:\n";
   std::cout << "--- ticking\n";
-  auto status = sequence_tree.tickOnce();
-  std::cout << "--- status: " << BT::toStr(status) << "\n\n";
+  auto sequence_status = sequence_tree.tickOnce();
+  std::cout << "--- status: " << BT::toStr(sequence_status) << "\n\n";
 
-  while(status == BT::NodeStatus::RUNNING) 
+  while(sequence_status == BT::NodeStatus::RUNNING) 
   {
     // Sleep to avoid busy loops.
     // do NOT use other sleep functions!
@@ -31,8 +31,8 @@ int main()
     sequence_tree.sleep(std::chrono::milliseconds(100));
 
     std::cout << "--- ticking\n";
-    status = sequence_tree.tickOnce();
-    std::cout << "--- status: " << toStr(status) << "\n\n";
+    sequence_status = sequence_tree.tickOnce();
+    std::cout << "--- status: " << toStr(sequence_status) << "\n\n";
   }
 
   // ---- ReactiveSequence control node ---- //
@@ -40,16 +40,16 @@ int main()
   auto reactive_sequence_tree = factory.createTreeFromFile("./04_tree_reactive_sequence.xml");
 
   std::cout << "--- ticking\n";
-  status = reactive_sequence_tree.tickOnce();
-  std::cout << "--- status: " << BT::toStr(status) << "\n\n";
+  auto reactive_sequence_status = reactive_sequence_tree.tickOnce();
+  std::cout << "--- status: " << BT::toStr(reactive_sequence_status) << "\n\n";
 
-  while(status == BT::NodeStatus::RUNNING) 
+  while(reactive_sequence_status == BT::NodeStatus::RUNNING) 
   {
     reactive_sequence_tree.sleep(std::chrono::milliseconds(100));
 
     std::cout << "--- ticking\n";
-    status = reactive_sequence_tree.tickOnce();
-    std::cout << "--- status: " << toStr(status) << "\n\n";
+    reactive_sequence_status = reactive_sequence_tree.tickOnce();
+    std::cout << "--- status: " << toStr(reactive_sequence_status) << "\n\n";
   }
 
   return 0;
